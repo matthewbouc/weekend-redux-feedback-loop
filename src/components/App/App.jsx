@@ -18,26 +18,26 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
-      <Router>
-        <Route exact path="/">
+      {/* <Router>
+        <Route exact path="/"> */}
           <p>Take your self-assessment for the day</p>
-        </Route>
-        <Route exact path="/feeling">
+        {/* </Route>
+        <Route exact path="/feeling"> */}
           <FeelingPage />
-        </Route>
-        <Route exact path="/understanding">
+        {/* </Route>
+        <Route exact path="/understanding"> */}
           <UnderstandingPage />
-        </Route>
-        <Route exact path="/support">
+        {/* </Route>
+        <Route exact path="/support"> */}
           <SupportPage />
-        </Route>
-        <Route exact path="/comments">
+        {/* </Route>
+        <Route exact path="/comments"> */}
           <CommentPage />
-        </Route>
-        <Route exact path="/admin">
+        {/* </Route>
+        <Route exact path="/admin"> */}
           <AdminPage />
-        </Route>
-      </Router>
+        {/* </Route>
+      </Router> */}
     </div>
   );
 }
