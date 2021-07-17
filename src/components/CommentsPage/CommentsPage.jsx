@@ -18,8 +18,9 @@ function CommentPage() {
     
     return(
         <form>
+            <p>Please submit comments, praises, and insults below.</p>
             <input onChange={(event) => setCommentState(event.target.value)} type="text" />
-            <button onClick={handleNext} type="button">NEXT</button>
+            <button type="button" disabled={!commentState} onClick={handleNext}>NEXT</button>
         </form>
     )
 }

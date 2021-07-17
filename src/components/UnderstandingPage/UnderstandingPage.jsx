@@ -18,8 +18,9 @@ function UnderstandingPage() {
 
     return(
         <form>
+            <p>How well did you understand today's material?</p>
             <input onChange={(event) => setUnderstandingState(event.target.value)} type="text" />
-            <button onClick={handleNext} type="button">NEXT</button>
+            <button type="button" disabled={!understandingState} onClick={handleNext}>NEXT</button>
         </form>
     )
 }

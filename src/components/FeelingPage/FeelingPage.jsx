@@ -17,8 +17,9 @@ function FeelingPage() {
 
     return(
         <form>
+            <p>How are you feeling today?</p>
             <input onChange={(event)=>setFeelingState(event.target.value)} type="text" />
-            <button onClick={handleNext} type="button">NEXT</button>
+            <button type="button" disabled={!feelingState} onClick={handleNext}>NEXT</button>
         </form>
     )
 }
