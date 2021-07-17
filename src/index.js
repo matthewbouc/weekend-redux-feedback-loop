@@ -8,7 +8,7 @@ import logger from 'redux-logger'
 import { Provider } from 'react-redux';
 
 
-const feelingReducer = (state = {}, action) => {
+const feelingReducer = (state = '', action) => {
     if (action.type === 'GET_FEELINGS'){
         return action.payload
     }
@@ -18,7 +18,7 @@ const feelingReducer = (state = {}, action) => {
     return state;
 }
 
-const understandingReducer = (state = {}, action) => {
+const understandingReducer = (state = '', action) => {
     if (action.type === 'GET_UNDERSTANDING'){
         return action.payload
     }
@@ -28,7 +28,7 @@ const understandingReducer = (state = {}, action) => {
     return state;
 }
 
-const supportReducer = (state = {}, action) => {
+const supportReducer = (state = '', action) => {
     if (action.type === 'GET_SUPPORT'){
         return action.payload
     }
@@ -38,7 +38,7 @@ const supportReducer = (state = {}, action) => {
     return state;
 }
 
-const commentReducer = (state = {}, action) => {
+const commentReducer = (state = '', action) => {
     if (action.type === 'GET_COMMENT'){
         return action.payload
     }

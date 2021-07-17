@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 
@@ -7,12 +7,15 @@ function CommentPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const [commentState, setCommentState] = useState('');
+    const commentReducer = useSelector(store => store.commentReducer);
 
     const handleNext = () => {
-        dispatch({
-            type: 'GET_COMMENT',
-            payload: commentState
-        })
+        if (!commentReducer || commentState){
+            dispatch({
+                type: 'GET_COMMENT',
+                payload: commentState
+            })
+        }
         history.push('/review');
     }
     
@@ -20,7 +23,7 @@ function CommentPage() {
         <form>
             <p>Please submit comments, praises, and insults below.</p>
             <input onChange={(event) => setCommentState(event.target.value)} type="text" />
-            <button type="button" disabled={!commentState} onClick={handleNext}>NEXT</button>
+            <button type="button" disabled={!commentReducer && !commentState} onClick={handleNext}>NEXT</button>
             <br/>
             <button type="button" onClick={() => history.push('/support')}>PREVIOUS</button>
         </form>

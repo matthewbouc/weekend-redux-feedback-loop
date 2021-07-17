@@ -26,7 +26,7 @@ function ReviewPage() {
             history.push('/thankyou')
             dispatch({
                 type: 'RESET',
-                payload: {}
+                payload: ''
             })
         }).catch(error => {
             console.log('Error POSTing to server', error)

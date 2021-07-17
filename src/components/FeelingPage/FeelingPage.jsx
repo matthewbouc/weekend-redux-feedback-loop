@@ -9,27 +9,29 @@ function FeelingPage() {
     const feelingReducer = useSelector(store => store.feelingReducer);
 
     const handleNext = () => {
-        dispatch({
-            type: 'GET_FEELINGS',
-            payload: feelingState
-        })
+        if (!feelingReducer || feelingState){
+            dispatch({
+                type: 'GET_FEELINGS',
+                payload: feelingState
+            });
+        }
         history.push('/understanding');
     }
 
-    const disabledButton = () => {
-        console.log(feelingReducer)
-        if (feelingReducer === {} && !feelingState){
-            return true
-        }
-        return false
-    }
-    console.log(disabledButton());
+    // const disabledButton = () => {
+    //     console.log(feelingReducer)
+    //     if (!feelingReducer && !feelingState){
+    //         return true
+    //     }
+    //     return false
+    // }
+    // console.log(disabledButton());
 
     return(
         <form>
             <p>How are you feeling today?</p>
             <input onChange={(event)=>setFeelingState(event.target.value)} type="text" />
-            <button type="button" disabled={disabledButton()} onClick={handleNext}>NEXT</button>
+            <button type="button" disabled={!feelingReducer && !feelingState} onClick={handleNext}>NEXT</button>
         </form>
     )
 }
