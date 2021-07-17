@@ -6,8 +6,10 @@ import FaceIcons from '../Icons/FaceIcons';
 function UnderstandingPage() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [understandingState, setUnderstandingState] = useState('');
+
     const understandingReducer = useSelector(store => store.understandingReducer)
+    const [understandingState, setUnderstandingState] = useState(understandingReducer);
+    
 
     const handleNext = () => {
         if (!understandingReducer || understandingState){

@@ -1,14 +1,17 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FaceIcons from '../Icons/FaceIcons';
 
 
 function FeelingPage() {
-    const [feelingState, setFeelingState] = useState('');
     const dispatch = useDispatch();
     const history = useHistory();
+
     const feelingReducer = useSelector(store => store.feelingReducer);
+    const [feelingState, setFeelingState] = useState(feelingReducer);
+
+    
 
     const handleNext = () => {
         if (!feelingReducer || feelingState){

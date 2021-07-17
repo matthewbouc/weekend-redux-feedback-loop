@@ -6,8 +6,10 @@ import FaceIcons from '../Icons/FaceIcons';
 function SupportPage() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const [supportState, setSupportState] = useState('');
+
     const supportReducer = useSelector(store => store.supportReducer);
+    const [supportState, setSupportState] = useState(supportReducer);
+    
 
     const handleNext = () => {
         if (!supportReducer || supportState){

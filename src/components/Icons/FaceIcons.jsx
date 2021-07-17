@@ -11,7 +11,7 @@ import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfie
 import FaceOutlinedIcon from '@material-ui/icons/FaceOutlined';
 
 import { makeStyles } from '@material-ui/core/styles';
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     veryDissatisfied: {
         color: 'red'
     },
