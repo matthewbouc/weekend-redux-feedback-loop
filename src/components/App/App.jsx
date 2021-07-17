@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import {useDispatch, useSelector} from 'react-redux';
-import { HashRouter as Router, Route, useHistory } from "react-router-dom";
+// import {useDispatch, useSelector} from 'react-redux';
+import { HashRouter as Router, Route, Link, useHistory } from "react-router-dom";
 import FeelingPage from '../FeelingPage/FeelingPage';
 import UnderstandingPage from '../UnderstandingPage/UnderstandingPage';
 import SupportPage from '../SupportPage/SupportPage';
@@ -11,14 +11,11 @@ import AdminPage from '../AdminPage/AdminPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 
 function App() {
-  // const dispatch = useDispatch();
-
-  const history = useHistory();
-
-  const handleNext = () => {
-    history.push('/feeling');
-  }
-
+  // This doesn't work even though the click is inside the Router.
+  // const history = useHistory()
+  // const handleNext = () => {
+  //   history.push('/feeling');
+  // }
 
   return (
     <div className='App'>
@@ -29,12 +26,13 @@ function App() {
       <Router>
         <Route exact path="/">
           <p>Take your self-assessment for the day</p>
-          <button onClick={handleNext} type="button">NEXT</button>
+          {/* <button onClick={handleNext}>NEXT</button> */}
+          <Link to="/feeling">Begin Assessment</Link>
         </Route>
-        <Route path="/feeling">
+        <Route exact path="/feeling">
           <FeelingPage />
         </Route>
-        <Route path="/understanding">
+        <Route exact path="/understanding">
           <UnderstandingPage />
         </Route>
         <Route exact path="/support">

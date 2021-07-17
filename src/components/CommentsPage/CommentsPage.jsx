@@ -18,7 +18,7 @@ function CommentPage() {
     
     return(
         <form>
-            <input onChange={(event) => setSupportState(event.target.value)} type="textfield" />
+            <input onChange={(event) => setCommentState(event.target.value)} type="text" />
             <button onClick={handleNext} type="button">NEXT</button>
         </form>
     )
