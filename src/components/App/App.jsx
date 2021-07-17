@@ -10,6 +10,7 @@ import CommentPage from '../CommentsPage/CommentsPage';
 import AdminPage from '../AdminPage/AdminPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
+import Header from '../Header/Header';
 
 function App() {
   // This doesn't work even though the click is inside the Router.
@@ -20,37 +21,19 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Feedback!</h1>
-        <h4>Don't forget it!</h4>
-      </header>
+      <Header />
       <Router>
         <Route exact path="/">
           <p>Take your self-assessment for the day</p>
-          {/* <button onClick={handleNext}>NEXT</button> */}
           <Link to="/feeling">Begin Assessment</Link>
         </Route>
-        <Route exact path="/feeling">
-          <FeelingPage />
-        </Route>
-        <Route exact path="/understanding">
-          <UnderstandingPage />
-        </Route>
-        <Route exact path="/support">
-          <SupportPage />
-        </Route>
-        <Route exact path="/comments">
-          <CommentPage />
-          </Route>
-        <Route exact path="/review">
-          <ReviewPage />
-        </Route>
-        <Route exact path="/thankyou">
-          <FeedbackSubmitted />
-        </Route>
-        <Route exact path="/admin">
-          <AdminPage />
-        </Route>
+        <Route exact path="/feeling" component={FeelingPage} />
+        <Route exact path="/understanding" component={UnderstandingPage} />
+        <Route exact path="/support" component={SupportPage} />
+        <Route exact path="/comments" component={CommentPage} />
+        <Route exact path="/review" component={ReviewPage} />
+        <Route exact path="/thankyou" component={FeedbackSubmitted} />
+        <Route exact path="/admin" component={AdminPage} />
       </Router>
     </div>
   );
