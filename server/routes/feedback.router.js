@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
+// Deletes /:id from database -- AdminPage
 router.delete('/:id', (req,res) => {
     console.log('in DELETE to db');
     const feedbackId = req.params.id;
@@ -16,6 +17,7 @@ router.delete('/:id', (req,res) => {
     })
 })
 
+// Toggles the true/false status of flagged for /:id  -- AdminPage
 router.put('/:id', (req,res) => {
     console.log('PUTting to db');
     const feedbackId = req.params.id;
@@ -30,6 +32,7 @@ router.put('/:id', (req,res) => {
     });
 });
 
+// GETs the database and orders it by id -- AdminPage
 router.get('/', (req,res) => {
     console.log('GETting database');
     pool.query('SELECT * FROM feedback ORDER BY id ASC;')
@@ -41,6 +44,7 @@ router.get('/', (req,res) => {
     });
 });
 
+// POSTs feedback into the database from ReviewPage
 router.post('/', (req,res) => {
     const {
         feeling,

@@ -5,11 +5,23 @@ function AdminPage() {
 
     useEffect(() => {
         console.log('In useEffect');
-        getFeedbackList();
+        getFeedbackList(); // GETs database on page load
     }, []);
 
     const [feedbackList, setFeedbackList] = useState([]);
 
+    // DELETEs a specific id on trash icon click
+    const deleteFeedback = (rowId) => {
+        axios.delete('/:id')
+        .then(response => {
+            console.log('Success DELETE-ing to server', response);
+            getFeedbackList();
+        }).catch(error => {
+            console.log('Error DELETE-ing to server', error);
+        });
+    }
+
+    // GETs feedback on page load and after PUT/DELETE requests
     const getFeedbackList = () => {
         axios.get('/feedback')
         .then(response => {
@@ -20,8 +32,15 @@ function AdminPage() {
         });
     }
 
+    // Toggles 'flagged' status in the database between true/false
     const putFlagFeedback = (rowId) => {
-
+        axios.put('/feedback/:id')
+        .then(response => {
+            console.log('Success PUTting to server', response);
+            getFeedbackList();
+        }).catch(error => {
+            console.log('Error PUTting to server', error);
+        });
     }
 
     return(
