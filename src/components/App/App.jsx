@@ -2,15 +2,23 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import {useDispatch, useSelector} from 'react-redux';
-import {HashRouter as Router, Route, Link} from "react-router-dom";
+import { HashRouter as Router, Route, useHistory } from "react-router-dom";
 import FeelingPage from '../FeelingPage/FeelingPage';
 import UnderstandingPage from '../UnderstandingPage/UnderstandingPage';
 import SupportPage from '../SupportPage/SupportPage';
 import CommentPage from '../CommentsPage/CommentsPage';
 import AdminPage from '../AdminPage/AdminPage';
+import ReviewPage from '../ReviewPage/ReviewPage';
 
 function App() {
   // const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  const handleNext = () => {
+    history.push('/feeling');
+  }
+
 
   return (
     <div className='App'>
@@ -18,26 +26,30 @@ function App() {
         <h1 className='App-title'>Feedback!</h1>
         <h4>Don't forget it!</h4>
       </header>
-      {/* <Router>
-        <Route exact path="/"> */}
+      <Router>
+        <Route exact path="/">
           <p>Take your self-assessment for the day</p>
-        {/* </Route>
-        <Route exact path="/feeling"> */}
+          <button onClick={handleNext} type="button">NEXT</button>
+        </Route>
+        <Route path="/feeling">
           <FeelingPage />
-        {/* </Route>
-        <Route exact path="/understanding"> */}
+        </Route>
+        <Route path="/understanding">
           <UnderstandingPage />
-        {/* </Route>
-        <Route exact path="/support"> */}
+        </Route>
+        <Route exact path="/support">
           <SupportPage />
-        {/* </Route>
-        <Route exact path="/comments"> */}
+        </Route>
+        <Route exact path="/comments">
           <CommentPage />
-        {/* </Route>
-        <Route exact path="/admin"> */}
+          </Route>
+        <Route exact path="/review">
+          <ReviewPage />
+        </Route>
+        <Route exact path="/admin">
           <AdminPage />
-        {/* </Route>
-      </Router> */}
+        </Route>
+      </Router>
     </div>
   );
 }
