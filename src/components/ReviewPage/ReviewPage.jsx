@@ -6,16 +6,13 @@ function ReviewPage() {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const feelingReducer = useSelector(store => store.feelingReducer);
-    const understandingReducer = useSelector(store => store.understandingReducer);
-    const supportReducer = useSelector(store => store.supportReducer);
-    const commentReducer = useSelector(store => store.commentReducer);
+    const store = useSelector(store => store);
 
     const submission = {
-        feeling: feelingReducer,
-        understanding: understandingReducer,
-        support: supportReducer,
-        comments: commentReducer
+        feeling: store.feelingReducer,
+        understanding: store.understandingReducer,
+        support: store.supportReducer,
+        comments: store.commentReducer
     }
 
 
@@ -36,10 +33,10 @@ function ReviewPage() {
     return(
         <div>
             <p>Review Your Feedback</p>
-            <p>Feelings: {feelingReducer}</p>
-            <p>Understanding: {understandingReducer}</p>
-            <p>Support: {supportReducer}</p>
-            <p>Comments: {commentReducer}</p>
+            <p>Feelings: {store.feelingReducer}</p>
+            <p>Understanding: {store.understandingReducer}</p>
+            <p>Support: {store.supportReducer}</p>
+            <p>Comments: {store.commentReducer}</p>
             <button onClick={submitButton}>Submit</button>
             <br/>
             <button type="button" onClick={() => history.push('/comments')}>PREVIOUS</button>

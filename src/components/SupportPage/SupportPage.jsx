@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import FaceIcons from '../Icons/FaceIcons';
 
 function SupportPage() {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function SupportPage() {
     return(
         <form>
             <p>Do you feel loved and supported by the Staff?</p>
-            <input onChange={(event) => setSupportState(event.target.value)} type="text" />
+            <FaceIcons state={supportState} setState={setSupportState} />
             <button type="button" disabled={!supportReducer && !supportState} onClick={handleNext}>NEXT</button>
             <br/>
             <button type="button" onClick={() => history.push('/understanding')}>PREVIOUS</button>

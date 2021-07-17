@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import FaceIcons from '../Icons/FaceIcons';
+
 
 function FeelingPage() {
     const [feelingState, setFeelingState] = useState('');
@@ -18,13 +20,10 @@ function FeelingPage() {
         history.push('/understanding');
     }
 
-        // Could add a toggle with current response if (feelingReducer) then display
-        // <p> Current Response: {feelingReducer} </p> 
-
     return(
         <form>
             <p>How are you feeling today?</p>
-            <input onChange={(event)=>setFeelingState(event.target.value)} type="text" />
+                <FaceIcons state={feelingState} setState={setFeelingState} />
             <button type="button" disabled={!feelingReducer && !feelingState} onClick={handleNext}>NEXT</button>
         </form>
     )

@@ -13,12 +13,6 @@ import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
 import Header from '../Header/Header';
 
 function App() {
-  // This doesn't work even though the click is inside the Router.
-  // const history = useHistory()
-  // const handleNext = () => {
-  //   history.push('/feeling');
-  // }
-
   return (
     <div className='App'>
       <Header />
