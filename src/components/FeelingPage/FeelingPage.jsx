@@ -14,12 +14,10 @@ function FeelingPage() {
     
 
     const handleNext = () => {
-        if (!feelingReducer || feelingState){
             dispatch({
                 type: 'GET_FEELINGS',
                 payload: feelingState
             });
-        }
         history.push('/understanding');
     }
 
@@ -27,7 +25,7 @@ function FeelingPage() {
         <form>
             <p>How are you feeling today?</p>
                 <FaceIcons state={feelingState} setState={setFeelingState} />
-            <button type="button" disabled={!feelingReducer && !feelingState} onClick={handleNext}>NEXT</button>
+            <button type="button" disabled={!feelingState} onClick={handleNext}>NEXT</button>
         </form>
     )
 }

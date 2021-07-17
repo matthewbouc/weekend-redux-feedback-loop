@@ -12,12 +12,10 @@ function UnderstandingPage() {
     
 
     const handleNext = () => {
-        if (!understandingReducer || understandingState){
             dispatch({
                 type: 'GET_UNDERSTANDING',
                 payload: understandingState
             })
-        }
         history.push('/support');
     }
 
@@ -25,7 +23,7 @@ function UnderstandingPage() {
         <form>
             <p>How well did you understand today's material?</p>
             <FaceIcons state={understandingState} setState={setUnderstandingState} />
-            <button type="button" disabled={!understandingReducer && !understandingState} onClick={handleNext}>NEXT</button>
+            <button type="button" disabled={!understandingState} onClick={handleNext}>NEXT</button>
             <br/>
             <button type="button" onClick={() => history.push('/feeling')}>PREVIOUS</button>
         </form>

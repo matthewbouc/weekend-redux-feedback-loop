@@ -12,12 +12,10 @@ function SupportPage() {
     
 
     const handleNext = () => {
-        if (!supportReducer || supportState){
             dispatch({
                 type: 'GET_SUPPORT',
                 payload: supportState
             })
-        }
         history.push('/comments');
     }
 
@@ -25,7 +23,7 @@ function SupportPage() {
         <form>
             <p>Do you feel loved and supported by the Staff?</p>
             <FaceIcons state={supportState} setState={setSupportState} />
-            <button type="button" disabled={!supportReducer && !supportState} onClick={handleNext}>NEXT</button>
+            <button type="button" disabled={!supportState} onClick={handleNext}>NEXT</button>
             <br/>
             <button type="button" onClick={() => history.push('/understanding')}>PREVIOUS</button>
         </form>
