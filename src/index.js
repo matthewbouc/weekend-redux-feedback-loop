@@ -12,11 +12,17 @@ const feelingReducer = (state = {}, action) => {
     if (action.type === 'GET_FEELINGS'){
         return action.payload
     }
+    if (action.type === 'RESET'){
+        return action.payload
+    }
     return state;
 }
 
 const understandingReducer = (state = {}, action) => {
     if (action.type === 'GET_UNDERSTANDING'){
+        return action.payload
+    }
+    if (action.type === 'RESET'){
         return action.payload
     }
     return state;
@@ -26,6 +32,9 @@ const supportReducer = (state = {}, action) => {
     if (action.type === 'GET_SUPPORT'){
         return action.payload
     }
+    if (action.type === 'RESET'){
+        return action.payload
+    }
     return state;
 }
 
@@ -33,8 +42,12 @@ const commentReducer = (state = {}, action) => {
     if (action.type === 'GET_COMMENT'){
         return action.payload
     }
+    if (action.type === 'RESET'){
+        return action.payload
+    }
     return state;
 }
+
 
 
 const storeInstance = createStore(
@@ -42,7 +55,7 @@ const storeInstance = createStore(
         feelingReducer,
         understandingReducer,
         supportReducer,
-        commentReducer    
+        commentReducer
     }),
     applyMiddleware(logger),
 );

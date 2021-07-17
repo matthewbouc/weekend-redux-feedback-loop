@@ -9,6 +9,7 @@ import SupportPage from '../SupportPage/SupportPage';
 import CommentPage from '../CommentsPage/CommentsPage';
 import AdminPage from '../AdminPage/AdminPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
+import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
 
 function App() {
   // This doesn't work even though the click is inside the Router.
@@ -43,6 +44,9 @@ function App() {
           </Route>
         <Route exact path="/review">
           <ReviewPage />
+        </Route>
+        <Route exact path="/thankyou">
+          <FeedbackSubmitted />
         </Route>
         <Route exact path="/admin">
           <AdminPage />
