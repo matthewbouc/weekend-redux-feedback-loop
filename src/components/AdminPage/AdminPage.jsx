@@ -7,9 +7,10 @@ function AdminPage() {
         console.log('In useEffect');
         getFeedbackList();
     }, []);
+
     const [feedbackList, setFeedbackList] = useState([]);
 
-    const getFeedbackList = () =>{
+    const getFeedbackList = () => {
         axios.get('/feedback')
         .then(response => {
             console.log('GET success', response);
@@ -17,6 +18,10 @@ function AdminPage() {
         }).catch(error => {
             console.log('Error GETting from the server', error);
         });
+    }
+
+    const putFlagFeedback = (rowId) => {
+
     }
 
     return(
@@ -32,17 +37,18 @@ function AdminPage() {
                 </tr>
             </thead>
             <tbody>
-                {feedbackList.map((survey, index) => {
+                {feedbackList.map((survey) => {
                     return(
-                        <tr key={index}>
-                        <td>{survey.feeling}</td>
-                        <td>{survey.understanding}</td>
-                        <td>{survey.support}</td>
-                        <td>{survey.comments}</td>
-                        <td>Flag icon</td> 
-                        {/* Flag onClick turn red.. start grey */}
-                        <td>Delete Icon</td>
-                        {/* Delete icon, turn on confirmation modal/alert/ thing */}
+                        <tr key={survey.id}>
+                            <td>{survey.feeling}</td>
+                            <td>{survey.understanding}</td>
+                            <td>{survey.support}</td>
+                            <td>{survey.comments}</td>
+                            <td>Flag icon</td> 
+                        {/* Flag onClick turn red.. start grey. This needs a PUT */}
+                            <td>Delete Icon</td>
+                        {/* Delete icon, turn on confirmation modal/alert/ thing 
+                        This needs a DELETE*/}
                     </tr>
                     )
                 })}
