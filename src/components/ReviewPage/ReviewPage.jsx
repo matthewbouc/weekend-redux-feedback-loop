@@ -12,7 +12,7 @@ function ReviewPage() {
     const commentReducer = useSelector(store => store.commentReducer);
 
     const submission = {
-        feelings: feelingReducer,
+        feeling: feelingReducer,
         understanding: understandingReducer,
         support: supportReducer,
         comments: commentReducer

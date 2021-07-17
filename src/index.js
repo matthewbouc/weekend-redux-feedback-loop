@@ -49,7 +49,6 @@ const commentReducer = (state = {}, action) => {
 }
 
 
-
 const storeInstance = createStore(
     combineReducers({
         feelingReducer,
