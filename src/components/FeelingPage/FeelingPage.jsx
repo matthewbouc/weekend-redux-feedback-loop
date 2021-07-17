@@ -18,14 +18,8 @@ function FeelingPage() {
         history.push('/understanding');
     }
 
-    // const disabledButton = () => {
-    //     console.log(feelingReducer)
-    //     if (!feelingReducer && !feelingState){
-    //         return true
-    //     }
-    //     return false
-    // }
-    // console.log(disabledButton());
+        // Could add a toggle with current response if (feelingReducer) then display
+        // <p> Current Response: {feelingReducer} </p> 
 
     return(
         <form>
