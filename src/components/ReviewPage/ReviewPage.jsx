@@ -29,16 +29,14 @@ function ReviewPage() {
         axios.post('/feedback', submission)
         .then(response => {
             console.log('Success POSTing feedback', response);
-
-          
+            history.push('/thankyou')
+            dispatch({
+                type: 'RESET',
+                payload: {}
+            })
         }).catch(error => {
             console.log('Error POSTing to server', error)
         });
-        history.push('/thankyou')
-        dispatch({
-            type: 'RESET',
-            payload: {}
-        })
     }
 
     return(
