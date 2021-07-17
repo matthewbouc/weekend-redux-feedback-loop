@@ -18,12 +18,6 @@ function ReviewPage() {
         comments: commentReducer
     }
 
-    const eraseSubmission = () => {
-        dispatch({
-            type: 'GET_FEELINGS',
-            payload: ''
-        })
-    }
 
     const submitButton = () => {
         axios.post('/feedback', submission)
@@ -47,6 +41,8 @@ function ReviewPage() {
             <p>Support: {supportReducer}</p>
             <p>Comments: {commentReducer}</p>
             <button onClick={submitButton}>Submit</button>
+            <br/>
+            <button type="button" onClick={() => history.push('/comments')}>PREVIOUS</button>
         </div>
     )
 }

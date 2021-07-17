@@ -20,6 +20,8 @@ function SupportPage() {
             <p>Do you feel loved and supported by the Staff?</p>
             <input onChange={(event) => setSupportState(event.target.value)} type="text" />
             <button type="button" disabled={!supportState} onClick={handleNext}>NEXT</button>
+            <br/>
+            <button type="button" onClick={() => history.push('/understanding')}>PREVIOUS</button>
         </form>
     )
 }

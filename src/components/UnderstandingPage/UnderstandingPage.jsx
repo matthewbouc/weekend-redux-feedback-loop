@@ -21,6 +21,8 @@ function UnderstandingPage() {
             <p>How well did you understand today's material?</p>
             <input onChange={(event) => setUnderstandingState(event.target.value)} type="text" />
             <button type="button" disabled={!understandingState} onClick={handleNext}>NEXT</button>
+            <br/>
+            <button type="button" onClick={() => history.push('/feeling')}>PREVIOUS</button>
         </form>
     )
 }

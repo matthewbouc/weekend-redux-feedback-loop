@@ -21,6 +21,8 @@ function CommentPage() {
             <p>Please submit comments, praises, and insults below.</p>
             <input onChange={(event) => setCommentState(event.target.value)} type="text" />
             <button type="button" disabled={!commentState} onClick={handleNext}>NEXT</button>
+            <br/>
+            <button type="button" onClick={() => history.push('/support')}>PREVIOUS</button>
         </form>
     )
 }
