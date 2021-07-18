@@ -2,8 +2,11 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FaceIcons from '../Icons/FaceIcons';
+import Button from '@material-ui/core/Button';
+import useStyles from '../Theme/useStyle';
 
 function UnderstandingPage() {
+    const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -23,9 +26,10 @@ function UnderstandingPage() {
         <form>
             <p>How well did you understand today's material?</p>
             <FaceIcons state={understandingState} setState={setUnderstandingState} />
-            <button type="button" disabled={!understandingState} onClick={handleNext}>NEXT</button>
-            <br/>
-            <button type="button" onClick={() => history.push('/feeling')}>PREVIOUS</button>
+            <Button variant="contained" className={classes.nextButton} disabled={!understandingState} onClick={handleNext}>NEXT</Button>
+            <Button variant="contained" className={classes.previousButton}  onClick={() => history.push('/feeling')}>
+                Previous
+            </Button>
         </form>
     )
 }

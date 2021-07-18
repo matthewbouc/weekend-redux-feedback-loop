@@ -1,8 +1,20 @@
+import React from 'react';
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 
 function ReviewPage() {
+    const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -37,9 +49,17 @@ function ReviewPage() {
             <p>Understanding: {store.understandingReducer}</p>
             <p>Support: {store.supportReducer}</p>
             <p>Comments: {store.commentReducer}</p>
-            <button onClick={submitButton}>Submit</button>
-            <br/>
-            <button type="button" onClick={() => history.push('/comments')}>PREVIOUS</button>
+            <Button variant="contained" color="primary" onClick={() => history.push('/comments')}>
+                Previous
+            </Button>
+            <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={submitButton}
+            >Send
+            </Button>
         </div>
     )
 }

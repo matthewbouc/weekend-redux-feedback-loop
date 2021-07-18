@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FaceIcons from '../Icons/FaceIcons';
+import Button from '@material-ui/core/Button';
 
 
 function FeelingPage() {
@@ -25,7 +26,7 @@ function FeelingPage() {
         <form>
             <p>How are you feeling today?</p>
                 <FaceIcons state={feelingState} setState={setFeelingState} />
-            <button type="button" disabled={!feelingState} onClick={handleNext}>NEXT</button>
+            <Button variant="contained" color="primary" disabled={!feelingState} onClick={handleNext}>NEXT</Button>
         </form>
     )
 }

@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import FaceIcons from '../Icons/FaceIcons';
+import Button from '@material-ui/core/Button';
 
 function SupportPage() {
     const dispatch = useDispatch();
@@ -21,11 +22,13 @@ function SupportPage() {
 
     return(
         <form>
-            <p>Do you feel loved and supported by the Staff?</p>
+            <p>Do you feel loved and supported by the Staff? Has at least one Staff member hugged you today?</p>
             <FaceIcons state={supportState} setState={setSupportState} />
-            <button type="button" disabled={!supportState} onClick={handleNext}>NEXT</button>
+            <Button variant="contained" color="primary" disabled={!supportState} onClick={handleNext}>NEXT</Button>
             <br/>
-            <button type="button" onClick={() => history.push('/understanding')}>PREVIOUS</button>
+            <Button variant="contained" color="primary" onClick={() => history.push('/understanding')}>
+                Previous
+            </Button>
         </form>
     )
 }

@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger'
 import { Provider } from 'react-redux';
+import { ThemeProvider } from '@material-ui/core';
+import theme from './components/Theme/theme';
 
 
 const feelingReducer = (state = '', action) => {
@@ -61,7 +63,9 @@ const storeInstance = createStore(
 
 ReactDOM.render(
     <Provider store={storeInstance}>
-        <App />
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
     </Provider>,
     document.getElementById('root')
 );
