@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import FaceIcons from '../Icons/FaceIcons';
 import Button from '@material-ui/core/Button';
 import useStyles from '../Theme/useStyle';
+import { Typography } from '@material-ui/core';
 
 function UnderstandingPage() {
     const classes = useStyles();
@@ -24,7 +25,7 @@ function UnderstandingPage() {
 
     return(
         <form>
-            <p>How well did you understand today's material?</p>
+            <Typography variant="h5">How well did you understand today's material?</Typography>
             <FaceIcons state={understandingState} setState={setUnderstandingState} />
             <Button variant="contained" className={classes.nextButton} disabled={!understandingState} onClick={handleNext}>NEXT</Button>
             <Button variant="contained" className={classes.previousButton}  onClick={() => history.push('/feeling')}>

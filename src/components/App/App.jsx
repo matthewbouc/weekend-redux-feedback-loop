@@ -11,9 +11,10 @@ import AdminPage from '../AdminPage/AdminPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
 import Header from '../Header/Header';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import useStyles from '../Theme/useStyle';
 import { AppBar } from '@material-ui/core';
+
 
 function App() {
   const classes = useStyles();
@@ -25,8 +26,8 @@ function App() {
       <Grid container >
         <Router>
           <Route exact path="/">
-            <p>Take your self-assessment for the day</p>
-            <Link to="/feeling">Begin Assessment</Link>
+            <Typography variant="h5">Take your self-assessment for the day!</Typography>
+            <Link to="/feeling"><Typography variant="h5">Begin Assessment</Typography></Link>
           </Route>
           <Route exact path="/feeling" component={FeelingPage} />
           <Route exact path="/understanding" component={UnderstandingPage} />

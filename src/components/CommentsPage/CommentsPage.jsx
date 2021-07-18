@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { Typography } from '@material-ui/core';
 
 
 function CommentPage() {
@@ -21,10 +22,10 @@ function CommentPage() {
     
     return(
         <form>
-            <p>Please submit comments, praises, and insults below.</p>
+            <Typography variant="h5">Please submit comments, praises, and insults below.</Typography>
             <input onChange={(event) => setCommentState(event.target.value)} type="text" value={commentState}/>
             <Button variant="contained" color="primary" disabled={!commentState} onClick={handleNext}>NEXT</Button>
-            <Button variant="contained" color="primary" onClick={() => history.push('/support')}>
+            <Button variant="contained" color="secondary" onClick={() => history.push('/support')}>
                 Previous
             </Button>
         </form>

@@ -49,7 +49,7 @@ function ReviewPage() {
             <p>Understanding: {store.understandingReducer}</p>
             <p>Support: {store.supportReducer}</p>
             <p>Comments: {store.commentReducer}</p>
-            <Button variant="contained" color="primary" onClick={() => history.push('/comments')}>
+            <Button variant="contained" color="secondary" onClick={() => history.push('/comments')}>
                 Previous
             </Button>
             <Button
