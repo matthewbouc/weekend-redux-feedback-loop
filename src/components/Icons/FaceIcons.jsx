@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
         color: 'red'
     },
     dissatisfied: {
-        color: 'orange'
+        color: 'darkorange'
     },
     mood: {
         color: 'grey'

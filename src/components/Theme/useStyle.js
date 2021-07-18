@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { Autorenew } from '@material-ui/icons';
 import theme from './theme';
 
 const useStyles = makeStyles(() => ({
@@ -10,6 +11,9 @@ const useStyles = makeStyles(() => ({
     },
     header: {
         backgroundColor: theme.palette.tertiary.main,
+    },
+    buttonSpacing: {
+        spacing:  8,
     },
 }));
 

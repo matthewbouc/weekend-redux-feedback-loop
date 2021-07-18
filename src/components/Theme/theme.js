@@ -17,7 +17,8 @@ const theme = createTheme({
     },
     status: {
         danger: "orange"
-    }
+    },
+    spacing: 8,
 })
 
 
