@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { Typography } from '@material-ui/core';
 import { TextareaAutosize } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 
 function CommentPage() {
@@ -22,14 +23,22 @@ function CommentPage() {
     }
     
     return(
+        
+        <Grid item container direction="column" justifyContent="center" >
         <form>
+            <Grid item xs={12}>
             <Typography variant="h5">Please submit comments, praises, and insults below.</Typography>
             <TextareaAutosize aria-label="minimum height" minRows={3} onChange={(event) => setCommentState(event.target.value)} value={commentState}/>
-            <Button variant="contained" color="primary" disabled={!commentState} onClick={handleNext}>NEXT</Button>
+            </Grid>
+            <Grid item xs={12}>
             <Button variant="contained" color="secondary" onClick={() => history.push('/support')}>
                 Previous
             </Button>
+            <Button variant="contained" color="primary" disabled={!commentState} onClick={handleNext}>NEXT</Button>
+            </Grid>
         </form>
+        </Grid>
+        
     )
 }
 

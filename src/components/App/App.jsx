@@ -26,8 +26,12 @@ function App() {
       <Grid container >
         <Router>
           <Route exact path="/">
-            <Typography variant="h5">Take your self-assessment for the day!</Typography>
-            <Link to="/feeling"><Typography variant="h5">Begin Assessment</Typography></Link>
+            <Grid item xs={12}>
+              <Typography variant="h5">Take your self-assessment for the day!</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Link to="/feeling"><Typography variant="h5">Begin Assessment</Typography></Link>
+            </Grid>
           </Route>
           <Route exact path="/feeling" component={FeelingPage} />
           <Route exact path="/understanding" component={UnderstandingPage} />

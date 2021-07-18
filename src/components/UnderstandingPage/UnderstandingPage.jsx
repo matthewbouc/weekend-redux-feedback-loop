@@ -5,6 +5,7 @@ import FaceIcons from '../Icons/FaceIcons';
 import Button from '@material-ui/core/Button';
 import useStyles from '../Theme/useStyle';
 import { Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 function UnderstandingPage() {
     const classes = useStyles();
@@ -24,14 +25,23 @@ function UnderstandingPage() {
     }
 
     return(
+        
+        <Grid container justifyContent="center">
         <form>
+            <Grid item xs={12}>
             <Typography variant="h5">How well did you understand today's material?</Typography>
+            </Grid>
+            <Grid item xs={12}>
             <FaceIcons state={understandingState} setState={setUnderstandingState} />
-            <Button variant="contained" className={classes.nextButton} disabled={!understandingState} onClick={handleNext}>NEXT</Button>
-            <Button variant="contained" className={classes.previousButton}  onClick={() => history.push('/feeling')}>
+            </Grid>
+            <Grid item xs={12}>
+            <Button variant="contained" color="secondary"  onClick={() => history.push('/feeling')}>
                 Previous
             </Button>
+            <Button variant="contained" color="primary" disabled={!understandingState} onClick={handleNext}>NEXT</Button>
+            </Grid>
         </form>
+        </Grid>
     )
 }
 

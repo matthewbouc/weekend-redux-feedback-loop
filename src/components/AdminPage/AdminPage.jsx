@@ -6,7 +6,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles, Modal } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import './AdminPage.css';
+import { Grid } from "@material-ui/core";
 
+// Styling for Modal
 const useStyles = makeStyles((theme) => ({
     paper: {
       width: 400,
@@ -17,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+  
 function AdminPage() {
     const classes = useStyles();
 
@@ -29,18 +32,19 @@ function AdminPage() {
     const [deleteId, setDeleteId] = useState('');
     const [open, setOpen] = useState(false);  
 
+    // handleOpen and handleClose for Modal popup
     const handleOpen = () => {
         setOpen(true);
     };
     const handleClose = () => {
         setOpen(false);
     };
-
+    // clicking trash icon opens modal and sets delete id
     const handleInitialDelete = (surveyId) => {
         handleOpen();
         setDeleteId(surveyId)
     }
-
+    // modal delete button, runs DELETE request and closes modal
     const handleFinalDelete = () => {
         deleteFeedback(deleteId);
         setDeleteId('');
@@ -48,7 +52,7 @@ function AdminPage() {
     }
     
 
-    // DELETEs a specific id on trash icon click
+    // DELETEs a specific id
     const deleteFeedback = (rowId) => {
         axios.delete(`/feedback/${rowId}`)
         .then(response => {
@@ -70,7 +74,7 @@ function AdminPage() {
         });
     }
 
-    // Toggles 'flagged' status in the database between true/false
+    // PUT request toggles 'flagged' status in the database between true/false
     const putFlagFeedback = (rowId) => {
         axios.put(`/feedback/${rowId}`)
         .then(response => {
@@ -82,7 +86,7 @@ function AdminPage() {
     }
 
     return(
-        <>
+        <Grid container justifyContent="center">
         <table>
             <thead>
                 <tr>
@@ -126,28 +130,28 @@ function AdminPage() {
                 })}
             </tbody>
         </table>
+        {/* Modal appears on trash icon click */}
         <Modal
             open={open}
             onClose={handleClose}
             aria-labelledby="simple-modal-title"
             aria-describedby="simple-modal-description"
-            >
-                <div className={classes.paper}>
-                    <h2 id="simple-modal-title">Delete Feedback</h2>
-                    <p id="simple-modal-description">
-                    Are you sure you want to permanently delete this feedback survey?
-                    </p>
-                    <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleFinalDelete}
-                    >
-                        Delete
-                    </Button>
-                </div>
-
+        >
+            <div className={classes.paper}>
+                <h2 id="simple-modal-title">Delete Feedback</h2>
+                <p id="simple-modal-description">
+                Are you sure you want to permanently delete this feedback survey?
+                </p>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleFinalDelete}
+                >
+                    Delete
+                </Button>
+            </div>
         </Modal>
-        </>
+        </Grid>
     )
 }
 

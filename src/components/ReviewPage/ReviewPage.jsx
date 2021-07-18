@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,12 +44,16 @@ function ReviewPage() {
     }
 
     return(
-        <div>
+        
+        <Grid item container direction="column" justifyContent="center">
+            <Grid item xs={12}>
             <p>Review Your Feedback</p>
             <p>Feelings: {store.feelingReducer}</p>
             <p>Understanding: {store.understandingReducer}</p>
             <p>Support: {store.supportReducer}</p>
             <p>Comments: {store.commentReducer}</p>
+            </Grid>
+            <Grid item xs={12}>
             <Button variant="contained" color="secondary" onClick={() => history.push('/comments')}>
                 Previous
             </Button>
@@ -60,7 +65,9 @@ function ReviewPage() {
                 onClick={submitButton}
             >Send
             </Button>
-        </div>
+            </Grid>
+        </Grid>
+        
     )
 }
 
