@@ -3,16 +3,16 @@ import { createTheme } from "@material-ui/core";
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#344648',
+            main: '#748B6F',
         },
         secondary: {
-            main: '#7D8E95',
+            main: '#D05663',
         },
         tertiary: {
-            main: '#FFBB98',
+            main: '#2A403D',
         },
         quaternary: {
-            main: '#FBE0C3',
+            main: '#C3CBD6',
         },
     },
     status: {

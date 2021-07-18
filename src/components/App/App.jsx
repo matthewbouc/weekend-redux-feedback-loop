@@ -11,24 +11,32 @@ import AdminPage from '../AdminPage/AdminPage';
 import ReviewPage from '../ReviewPage/ReviewPage';
 import FeedbackSubmitted from '../FeedbackSubmitted/FeedbackSubmitted';
 import Header from '../Header/Header';
+import { Grid } from '@material-ui/core';
+import useStyles from '../Theme/useStyle';
+import { AppBar } from '@material-ui/core';
 
 function App() {
+  const classes = useStyles();
   return (
     <div className='App'>
-      <Header />
-      <Router>
-        <Route exact path="/">
-          <p>Take your self-assessment for the day</p>
-          <Link to="/feeling">Begin Assessment</Link>
-        </Route>
-        <Route exact path="/feeling" component={FeelingPage} />
-        <Route exact path="/understanding" component={UnderstandingPage} />
-        <Route exact path="/support" component={SupportPage} />
-        <Route exact path="/comments" component={CommentPage} />
-        <Route exact path="/review" component={ReviewPage} />
-        <Route exact path="/thankyou" component={FeedbackSubmitted} />
-        <Route exact path="/admin" component={AdminPage} />
-      </Router>
+      <AppBar className={classes.header} position="relative">
+        <Header />
+      </AppBar>
+      <Grid container >
+        <Router>
+          <Route exact path="/">
+            <p>Take your self-assessment for the day</p>
+            <Link to="/feeling">Begin Assessment</Link>
+          </Route>
+          <Route exact path="/feeling" component={FeelingPage} />
+          <Route exact path="/understanding" component={UnderstandingPage} />
+          <Route exact path="/support" component={SupportPage} />
+          <Route exact path="/comments" component={CommentPage} />
+          <Route exact path="/review" component={ReviewPage} />
+          <Route exact path="/thankyou" component={FeedbackSubmitted} />
+          <Route exact path="/admin" component={AdminPage} />
+        </Router>
+      </Grid>
     </div>
   );
 }

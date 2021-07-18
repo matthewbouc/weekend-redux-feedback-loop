@@ -3,10 +3,13 @@ import theme from './theme';
 
 const useStyles = makeStyles(() => ({
     nextButton: {
-        backgroundColor: theme.palette.tertiary.main,
+        backgroundColor: theme.palette.primary.main,
     },
     previousButton: {
-        backgroundColor: theme.palette.quaternary.main,
+        backgroundColor: theme.palette.secondary.main,
+    },
+    header: {
+        backgroundColor: theme.palette.tertiary.main,
     },
 }));
 
