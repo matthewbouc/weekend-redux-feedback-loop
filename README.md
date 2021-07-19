@@ -8,7 +8,7 @@ The goal of this project was to create a feedback survey using React-redux to bu
 
 ## Screen Shot
 
-![Project Screen Shot](./public/images/FeedbackSurvey.gif)
+![Project Screen Shot](https://github.com/matthewbouc/weekend-redux-feedback-loop/blob/master/public/images/FeedbackSurvey.gif)
 
 ### Prerequisites
 
