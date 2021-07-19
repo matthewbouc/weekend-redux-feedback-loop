@@ -26,6 +26,20 @@ The goal of this project was to create a feedback survey using React-redux to bu
 
 ## Usage
 
+1. Clicking Begin Assessment brings the user to the first survey question.
+2. The user has 5 icon options for each question or a comment box.
+    - The Next button is disabled until they choose a response or enter text
+3. Clicking an icon, changes the shading of the icon, showing it has been selected.
+    - After clicking Next the users data is recorded.
+4. The user can press Previous to return to the last question.
+    - The user's response is still displayed.  They may change their response and continue.
+5. At the end of the survey, the user is shown a review page with all their responses.
+    - They are given the choice to click previous to change responses or Send to submit the feedback.
+6. After clicking Send, the user is presented with a confirmation page, thanking them for their feedback.
+    - Clicking Leave New Feedback returns the user to the home page.
+7. An Admin page exists at /admin.  The admin can view all previous feedback surveys from the user.  Flag and Delete options are available to the admin.
+    - Flagging an option turns the icon red.
+    - Deleting a survey will produce a modal, confirming the delete - which will permanently remove the response from the database.
 
 
 
