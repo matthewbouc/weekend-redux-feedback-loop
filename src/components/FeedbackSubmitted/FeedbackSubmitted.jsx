@@ -5,6 +5,7 @@ import { Grid } from "@material-ui/core";
 function FeedbackSubmitted() {
     const history = useHistory();
 
+    // Brings user back to the beginning after clicking button
     const leaveButton = () => {
         history.push('/');
     }

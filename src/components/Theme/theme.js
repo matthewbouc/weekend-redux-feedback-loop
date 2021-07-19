@@ -1,5 +1,6 @@
 import { createTheme } from "@material-ui/core";
 
+// Color theme for App
 const theme = createTheme({
     palette: {
         primary: {

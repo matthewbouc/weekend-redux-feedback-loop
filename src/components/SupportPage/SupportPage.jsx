@@ -10,6 +10,8 @@ function SupportPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // Brings in reducer and sets default local state to current reducer
+    // If the user clicks Next and leaves the page, then comes back, their previous response is still shown.
     const supportReducer = useSelector(store => store.supportReducer);
     const [supportState, setSupportState] = useState(supportReducer);
     
@@ -34,6 +36,7 @@ function SupportPage() {
             </Grid>
             <Grid item xs={12}>
             <Button variant="contained" color="secondary" onClick={() => history.push('/understanding')}>Previous</Button>
+            {/* Button is disabled and greyed out if there isn't a local state.  Local state persists beyond leaving page, thanks to reducer being default state (above) */}
             <Button variant="contained" color="primary" disabled={!supportState} onClick={handleNext}>NEXT</Button>
             </Grid>
         </form>

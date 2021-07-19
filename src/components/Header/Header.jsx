@@ -1,9 +1,8 @@
 import { Typography } from "@material-ui/core";
 import React from "react";
-import useStyles from "../Theme/useStyle";
 
 function Header () {
-  const classes = useStyles();
+    // Needs some visual improvement/styling
     return(
       <div>
         <Typography variant="h1" color="inherit"> Feedback!</Typography>

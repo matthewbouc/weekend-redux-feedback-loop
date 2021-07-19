@@ -23,14 +23,15 @@ const useStyles = makeStyles((theme) => ({
 function AdminPage() {
     const classes = useStyles();
 
+    // GETs database on page load
     useEffect(() => {
         console.log('In useEffect');
-        getFeedbackList(); // GETs database on page load
+        getFeedbackList(); 
     }, []);
 
-    const [feedbackList, setFeedbackList] = useState([]);
-    const [deleteId, setDeleteId] = useState('');
-    const [open, setOpen] = useState(false);  
+    const [feedbackList, setFeedbackList] = useState([]); // local state for database information (to be displayed)
+    const [deleteId, setDeleteId] = useState(''); // <tr> id used in modal to delete row
+    const [open, setOpen] = useState(false);  // modal open or closed
 
     // handleOpen and handleClose for Modal popup
     const handleOpen = () => {
@@ -39,12 +40,12 @@ function AdminPage() {
     const handleClose = () => {
         setOpen(false);
     };
-    // clicking trash icon opens modal and sets delete id
+    // clicking trash icon opens Modal and sets delete id
     const handleInitialDelete = (surveyId) => {
         handleOpen();
         setDeleteId(surveyId)
     }
-    // modal delete button, runs DELETE request and closes modal
+    // Modal delete button, runs DELETE request and closes modal
     const handleFinalDelete = () => {
         deleteFeedback(deleteId);
         setDeleteId('');
@@ -99,6 +100,7 @@ function AdminPage() {
                 </tr>
             </thead>
             <tbody>
+                {/* map the GET results from the database */}
                 {feedbackList.map((survey) => {
                     return(
                         <tr key={survey.id}>
@@ -106,7 +108,7 @@ function AdminPage() {
                             <td>{survey.understanding}</td>
                             <td>{survey.support}</td>
                             <td>{survey.comments}</td>
-                            {/* Ternary to flip between red and grey icons*/}
+                            {/* Ternary to flip between red and grey flag icons*/}
                             <td>{survey.flagged ? 
                                 <FlagIcon 
                                     onClick={() => putFlagFeedback(survey.id)} 

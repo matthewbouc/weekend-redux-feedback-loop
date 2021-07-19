@@ -10,6 +10,12 @@ import MoodTwoToneIcon from '@material-ui/icons/MoodTwoTone';
 import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 import FaceOutlinedIcon from '@material-ui/icons/FaceOutlined';
 
+// This page contains the feedback icons and their toggle, which switches between
+// two different icons when clicked.  Requires useState on parent to be passed down
+// through props as {state and setState}
+
+
+// styling for feedback icons
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
     veryDissatisfied: {
@@ -29,6 +35,7 @@ const useStyles = makeStyles(() => ({
     },
 
 }));
+
 
 function FaceIcons ({state, setState}) {
     const classes = useStyles();

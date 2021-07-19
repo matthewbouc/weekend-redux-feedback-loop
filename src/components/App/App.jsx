@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './App.css';
-// import {useDispatch, useSelector} from 'react-redux';
 import { HashRouter as Router, Route, Link, useHistory } from "react-router-dom";
 import FeelingPage from '../FeelingPage/FeelingPage';
 import UnderstandingPage from '../UnderstandingPage/UnderstandingPage';

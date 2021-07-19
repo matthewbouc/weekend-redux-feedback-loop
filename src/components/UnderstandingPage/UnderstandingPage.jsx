@@ -12,6 +12,8 @@ function UnderstandingPage() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // Brings in reducer and sets default local state to current reducer
+    // If the user clicks Next and leaves the page, then comes back, their previous response is still shown.
     const understandingReducer = useSelector(store => store.understandingReducer)
     const [understandingState, setUnderstandingState] = useState(understandingReducer);
     
@@ -38,6 +40,7 @@ function UnderstandingPage() {
             <Button variant="contained" color="secondary"  onClick={() => history.push('/feeling')}>
                 Previous
             </Button>
+            {/* Button is disabled and greyed out if there isn't a local state.  Local state persists beyond leaving page, thanks to reducer being default state (above) */}
             <Button variant="contained" color="primary" disabled={!understandingState} onClick={handleNext}>NEXT</Button>
             </Grid>
         </form>

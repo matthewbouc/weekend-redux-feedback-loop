@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './components/Theme/theme';
 
-
+// Holds input from FeelingPage
 const feelingReducer = (state = '', action) => {
     if (action.type === 'GET_FEELINGS'){
         return action.payload
@@ -20,6 +20,7 @@ const feelingReducer = (state = '', action) => {
     return state;
 }
 
+// Holds input from UnderstandingPage
 const understandingReducer = (state = '', action) => {
     if (action.type === 'GET_UNDERSTANDING'){
         return action.payload
@@ -30,6 +31,7 @@ const understandingReducer = (state = '', action) => {
     return state;
 }
 
+// Holds input from SupportPage
 const supportReducer = (state = '', action) => {
     if (action.type === 'GET_SUPPORT'){
         return action.payload
@@ -40,6 +42,7 @@ const supportReducer = (state = '', action) => {
     return state;
 }
 
+// Holds input from CommentsPage
 const commentReducer = (state = '', action) => {
     if (action.type === 'GET_COMMENT'){
         return action.payload
@@ -63,6 +66,7 @@ const storeInstance = createStore(
 
 ReactDOM.render(
     <Provider store={storeInstance}>
+        {/* import custom theme from Themes.*/}
         <ThemeProvider theme={theme}>
             <App />
         </ThemeProvider>

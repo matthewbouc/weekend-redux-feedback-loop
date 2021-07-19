@@ -21,6 +21,7 @@ function ReviewPage() {
 
     const store = useSelector(store => store);
 
+    // submission object contains four responses from user
     const submission = {
         feeling: store.feelingReducer,
         understanding: store.understandingReducer,
@@ -28,7 +29,7 @@ function ReviewPage() {
         comments: store.commentReducer
     }
 
-
+    // on submit, POSTs 'submission' to database, Resets reducers.
     const submitButton = () => {
         axios.post('/feedback', submission)
         .then(response => {
@@ -47,6 +48,7 @@ function ReviewPage() {
         
         <Grid item container direction="column" justifyContent="center">
             <Grid item xs={12}>
+            {/* Displays responses to survey */}
             <p>Review Your Feedback</p>
             <p>Feelings: {store.feelingReducer}</p>
             <p>Understanding: {store.understandingReducer}</p>
